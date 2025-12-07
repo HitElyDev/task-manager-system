@@ -75,3 +75,4 @@ HTask.Infrastructure/bin/Debug/net10.0/HTask.Domain.pdb
 HTask.Infrastructure/bin/Debug/net10.0/HTask.Infrastructure.pdb
 HTask.Infrastructure/obj/Debug/net10.0/HTask.Infrastructure.pdb
 HTask.Infrastructure/obj/Debug/net10.0/HTask.Infrastructure.sourcelink.json
+*.v2
