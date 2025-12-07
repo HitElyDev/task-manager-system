@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="HTask.API/HTask.API.csproj" />
+  <Project Path="HTask.Application/HTask.Application.csproj" />
+  <Project Path="HTask.Domain/HTask.Domain.csproj" />
+  <Project Path="HTask.Infrastructure/HTask.Infrastructure.csproj" />
+</Solution>

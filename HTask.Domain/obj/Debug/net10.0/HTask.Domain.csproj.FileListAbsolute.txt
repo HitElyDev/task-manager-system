@@ -1,0 +1,11 @@
+D:\Proyectos\HTaskSolution\HTask.Domain\bin\Debug\net10.0\HTask.Domain.deps.json
+D:\Proyectos\HTaskSolution\HTask.Domain\bin\Debug\net10.0\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\HTask.Domain\bin\Debug\net10.0\HTask.Domain.pdb
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\HTask.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\HTask.Domain.AssemblyInfoInputs.cache
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\HTask.Domain.AssemblyInfo.cs
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\HTask.Domain.csproj.CoreCompileInputs.cache
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\refint\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\HTask.Domain.pdb
+D:\Proyectos\HTaskSolution\HTask.Domain\obj\Debug\net10.0\ref\HTask.Domain.dll

@@ -1,0 +1,17 @@
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Infrastructure.deps.json
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Infrastructure.dll
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Infrastructure.pdb
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Application.dll
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Application.pdb
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\bin\Debug\net10.0\HTask.Domain.pdb
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.csproj.AssemblyReference.cache
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.AssemblyInfoInputs.cache
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.AssemblyInfo.cs
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.In.A4F63FBC.Up2Date
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.dll
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\refint\HTask.Infrastructure.dll
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\HTask.Infrastructure.pdb
+D:\Proyectos\HTaskSolution\HTask.Infrastructure\obj\Debug\net10.0\ref\HTask.Infrastructure.dll
