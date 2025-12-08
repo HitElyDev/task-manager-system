@@ -1,0 +1,66 @@
+# ----------------------------------------------------
+# CI: INTEGRACIÓN CONTINUA (BUILD)
+# ----------------------------------------------------
+trigger:
+- main # Se ejecuta en cada push a la rama 'main'
+
+pool:
+  vmImage: 'ubuntu-latest' # Agente hospedado por Microsoft para compilar
+
+variables:
+  buildConfiguration: 'Release'
+  webProject: 'HTask.API/HTask.API.csproj' 
+  
+
+stages:
+- stage: Build_CI
+  displayName: '1. Build - Integración Continua'
+  jobs:
+  - job: Build
+    steps:
+    
+    # 1. Restaurar dependencias
+    - task: DotNetCoreCLI@2
+      displayName: 'dotnet restore'
+      inputs:
+        command: 'restore'
+        projects: '*/.csproj'
+
+    # 2. Publicar el proyecto web (crea el paquete de despliegue ZIP)
+    - task: DotNetCoreCLI@2
+      displayName: 'dotnet publish'
+      inputs:
+        command: 'publish'
+        publishWebProjects: true 
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: true # Comprime el resultado en un ZIP
+
+    # 3. Publicar el Artefacto (hace que el paquete ZIP esté disponible para el CD)
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publicar Artefacto (drop)'
+      inputs:
+        pathToPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: 'drop'
+
+# ----------------------------------------------------
+# CD: DESPLIEGUE CONTINUO (DEPLOY)
+# ----------------------------------------------------
+- stage: Deploy_CD
+  displayName: '2. Deploy - Despliegue Continuo'
+  dependsOn: Build_CI # Espera a que el build termine
+  jobs:
+  - deployment: DeployWebApp
+    displayName: 'Desplegar a Azure App Service'
+    # Define el environment (puede ser un nombre simple como 'Produccion')
+    environment: 'Azure App Service' 
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebAppDeployment@4
+            displayName: 'Desplegar API'
+            inputs:
+              azureSubscription: 'Task-Manager-Azure-Conn' 
+              appType: 'webApp'
+              appName: 'task-manager-system' 
+              package: '$(Pipeline.Workspace)/drop/*.zip' # Localización del artefacto
