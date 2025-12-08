@@ -1,41 +1,44 @@
+# azure-pipelines.yml
+
 # ----------------------------------------------------
 # CI: INTEGRACIÓN CONTINUA (BUILD)
 # ----------------------------------------------------
 trigger:
-- main # Se ejecuta en cada push a la rama 'main'
+- main # Se ejecuta automáticamente en cada push a la rama principal
 
 pool:
-  vmImage: 'ubuntu-latest' # Agente hospedado por Microsoft para compilar
+  vmImage: 'ubuntu-latest' # Usamos un agente Linux para la compilación
 
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Release'  
   webProject: 'HTask.API/HTask.API.csproj' 
-  
+  appName: 'task-manager-system' 
+  azureServiceConnection: 'Task-Manager-Azure-Conn' 
 
 stages:
 - stage: Build_CI
-  displayName: '1. Build - Integración Continua'
+  displayName: '1. Compilación (CI)'
   jobs:
   - job: Build
+    displayName: 'Preparar Artefacto'
     steps:
     
-    # 1. Restaurar dependencias
+    # 1. Restaurar dependencias de todos los proyectos
     - task: DotNetCoreCLI@2
       displayName: 'dotnet restore'
       inputs:
         command: 'restore'
         projects: '*/.csproj'
 
-    # 2. Publicar el proyecto web (crea el paquete de despliegue ZIP)
+    # 2. Publicar el proyecto web (Crea el paquete ZIP)
     - task: DotNetCoreCLI@2
       displayName: 'dotnet publish'
       inputs:
         command: 'publish'
-        publishWebProjects: true 
+        publishWebProjects: true # Publica solo el proyecto web
         arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
         zipAfterPublish: true # Comprime el resultado en un ZIP
-
-    # 3. Publicar el Artefacto (hace que el paquete ZIP esté disponible para el CD)
+    
     - task: PublishBuildArtifacts@1
       displayName: 'Publicar Artefacto (drop)'
       inputs:
@@ -46,21 +49,23 @@ stages:
 # CD: DESPLIEGUE CONTINUO (DEPLOY)
 # ----------------------------------------------------
 - stage: Deploy_CD
-  displayName: '2. Deploy - Despliegue Continuo'
-  dependsOn: Build_CI # Espera a que el build termine
+  displayName: '2. Despliegue (CD)'
+  dependsOn: Build_CI # Espera a que la compilación sea exitosa
   jobs:
   - deployment: DeployWebApp
-    displayName: 'Desplegar a Azure App Service'
-    # Define el environment (puede ser un nombre simple como 'Produccion')
-    environment: 'Azure App Service' 
+    displayName: 'Desplegar a Azure'
+    environment: 'QA/Production' # Nombre del ambiente para tracking
     strategy:
       runOnce:
         deploy:
           steps:
+          # 1. Tarea para desplegar el código en Azure App Service
           - task: AzureWebAppDeployment@4
-            displayName: 'Desplegar API'
+            displayName: 'Desplegar API en App Service'
             inputs:
-              azureSubscription: 'Task-Manager-Azure-Conn' 
-              appType: 'webApp'
-              appName: 'task-manager-system' 
-              package: '$(Pipeline.Workspace)/drop/*.zip' # Localización del artefacto
+              # Usamos la Service Connection que otorga permisos
+              azureSubscription: '$(azureServiceConnection)' 
+              appType: 'webApp'              
+              appName: '$(appName)' 
+              # Ruta al paquete ZIP creado en el CI
+              package: '$(Pipeline.Workspace)/drop/*.zip'
