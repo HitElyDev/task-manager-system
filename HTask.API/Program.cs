@@ -7,23 +7,30 @@ using HTask.Infrastructure;
 using HTask.Infrastructure.Data;
 using HTask.Infrastructure.Repositories;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(connectionString))
-{
-    throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no fue encontrada en la configuración.");
-}
+//if (string.IsNullOrEmpty(connectionString))
+//{
+//    throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no fue encontrada en la configuración.");
+//}
 
+//builder.Services.AddDbContext<HTaskDbContext>(options =>
+//    options.UseSqlServer(connectionString));
+
+//builder.Services.AddDbContext<HTaskDbContext>(options =>
+//    options.UseSqlServer(connectionString));
+
+
+// Configuración de EF Core y la Conexión a la BD en SQLite
+// Ahora la conexión se define como un archivo llamado TaskManager.db
 builder.Services.AddDbContext<HTaskDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite("Data Source=TaskManager.db"));
 
 
-
-builder.Services.AddDbContext<HTaskDbContext>(options =>
-    options.UseSqlServer(connectionString));
 
 
 builder.Services.AddScoped<IHTaskRepository, HTaskRepository>();
