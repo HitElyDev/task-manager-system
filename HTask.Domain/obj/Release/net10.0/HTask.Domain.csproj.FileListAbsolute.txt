@@ -1,0 +1,12 @@
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\bin\Release\net10.0\HTask.Domain.deps.json
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\bin\Release\net10.0\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\bin\Release\net10.0\HTask.Domain.pdb
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.AssemblyInfoInputs.cache
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.AssemblyInfo.cs
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.csproj.CoreCompileInputs.cache
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.sourcelink.json
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\refint\HTask.Domain.dll
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\HTask.Domain.pdb
+D:\Proyectos\HTaskSolution\task-manager-system\HTask.Domain\obj\Release\net10.0\ref\HTask.Domain.dll
